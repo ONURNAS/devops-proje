@@ -1,0 +1,18 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu indir
+        uses: actions/checkout@v4
+
+      - name: Docker image olustur
+        run: docker build -t merhaba-dunya . 
+
+      - name: Konteyneri calistir
+        run: docker run merhaba-dunya
